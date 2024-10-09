@@ -21,4 +21,9 @@ use Helpers\Psr4AutoloaderClass;
 $loader = new Psr4AutoloaderClass();
 $loader->register();
 $loader->addNamespace('\Helpers', '/Helpers');
+$loader->addNamespace('\League\Plates', '/Vendor/Plates/src');
+
+$engine = new \League\Plates\Engine(__DIR__ . "/Views");
+
+echo $engine->render('home', ['tftSetName' => 'Fates']);
 #endregion
