@@ -22,8 +22,8 @@ $loader = new Psr4AutoloaderClass();
 $loader->register();
 $loader->addNamespace('\Helpers', '/Helpers');
 $loader->addNamespace('\League\Plates', '/Vendor/Plates/src');
+$loader->addNamespace('\Controllers', '/Controllers');
 
-$engine = new \League\Plates\Engine(__DIR__ . "/Views");
-
-echo $engine->render('home', ['tftSetName' => 'Fates']);
+$Controller = new \Controllers\MainController();
+$Controller->index();
 #endregion
