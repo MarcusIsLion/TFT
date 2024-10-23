@@ -23,7 +23,11 @@ $loader->register();
 $loader->addNamespace('\Helpers', '/Helpers');
 $loader->addNamespace('\League\Plates', '/Vendor/Plates/src');
 $loader->addNamespace('\Controllers', '/Controllers');
+$loader->addNamespace('\Config', '/Config');
+$loader->addNamespace('\Models', '/Models');
 
-$Controller = new \Controllers\MainController();
-$Controller->index();
+$router = new \Controllers\Router\Router();
+
+$router->routing($_GET, $_POST);
+
 #endregion
