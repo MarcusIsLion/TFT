@@ -13,12 +13,15 @@ class MainController
      */
     public function index(): void
     {
-        echo $this->engine->render('home', ['tftSetName' => 'Remix Rumble']);
+        echo $this->engine->render('home', ['tftSetName' => 'Welcome !']);
     }
 
-    public function Units(): void
+    /**
+     * constructor
+     */
+    public function search(): void
     {
-        echo $this->engine->render('Unitcards', ['tftSetName' => 'Remix Rumble']);
+        echo $this->engine->render('search', ['tftSetName' => 'Searching some thing ?']);
     }
 
     /**
