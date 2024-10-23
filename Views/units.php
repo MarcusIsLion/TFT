@@ -14,8 +14,8 @@ $unitsGet = $units;
                     <!--<li>La voie porteuse</li>-->
                 </ul>
                 <div class="card-actions">
-                    <a class="edit-btn" href="action=edit-unit&id=<?= $unit->getid() ?>">✏️</a>
-                    <a class="delete-btn" href="action=edit-unit&id=<?= $unit->getid() ?>">🗑️</a>
+                    <a class="edit-btn" href="?action=edit-unit&id=<?= $unit->getid() ?>">✏️</a>
+                    <a class="delete-btn" href="?action=delete-unit&id=<?= $unit->getid() ?>">🗑️</a>
                 </div>
                 <h3 class="unit-name"><?php echo ($unit->getName() . "<br/>(" . $unit->getOrigin() . ")"); ?></h3>
                 <div class="unit-info">

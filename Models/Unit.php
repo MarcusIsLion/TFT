@@ -13,7 +13,7 @@ class Unit
     private string $origin;
     private string $url_img;
 
-    public function __construct(?int $id, string $name, int $cost, string $origin, string $url_img)
+    public function __construct(?int $id = null, string $name = '', int $cost = 0, string $origin = '', string $url_img = '')
     {
         $this->id = $id;
         $this->name = $name;

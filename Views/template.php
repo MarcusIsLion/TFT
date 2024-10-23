@@ -13,7 +13,6 @@
 
 <body>
     <header>
-        <!-- Menu -->
         <nav class="navbar">
             <ul class="nav-list">
                 <li><a href="?" class="nav-item">Accueil</a></li>
