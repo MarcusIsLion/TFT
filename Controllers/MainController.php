@@ -16,6 +16,11 @@ class MainController
         echo $this->engine->render('home', ['tftSetName' => 'Remix Rumble']);
     }
 
+    public function Units(): void
+    {
+        echo $this->engine->render('Unitcards', ['tftSetName' => 'Remix Rumble']);
+    }
+
     /**
      * Constructor
      */
