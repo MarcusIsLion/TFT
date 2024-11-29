@@ -20,7 +20,7 @@ $unitsGet = $units;
                 <h3 class="unit-name"><?php echo ($unit->getName() . "<br/>(" . $unit->getOrigin() . ")"); ?></h3>
                 <div class="unit-info">
                     <span class="cost-icon">💰</span>
-                    <span class="unit-cost"><?php echo $unit->getCost() . '€'; ?></span>
+                    <span class="unit-cost"><?php echo number_format($unit->getCost(), 2, ',', ' ') . '€'; ?></span>
                 </div>
             </div>
         </div>
