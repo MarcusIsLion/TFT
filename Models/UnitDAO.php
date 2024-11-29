@@ -67,9 +67,24 @@ class UnitDAO extends BasePDODAO
     }
 
     // supprime une unité
-    public function delete(int $idUnit = -1): void
+    public function delete(int $idUnit = -1): int
     {
         $sql = "DELETE FROM units WHERE id = :id";
-        $this->execRequest($sql, [':id' => $idUnit]);
+        $stmt = $this->execRequest($sql, [':id' => $idUnit]);
+
+        return $stmt->rowCount();
+    }
+
+    // Met à jour une unité
+    public function update(array $data): void
+    {
+        $sql = "UPDATE units SET name = :name, cost = :cost, origin = :origin, url_img = :url_img WHERE id = :id";
+        $this->execRequest($sql, [
+            ':id' => $data['id'],
+            ':name' => $data['name'],
+            ':cost' => $data['cost'],
+            ':origin' => $data['origin'],
+            ':url_img' => $data['urlImg']
+        ]);
     }
 }

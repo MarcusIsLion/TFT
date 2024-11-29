@@ -29,6 +29,16 @@ class UnitController
     /**
      * Constructor
      */
+    public function EditUnit(int $idUnit): void
+    {
+        $UnitDAO = new \Models\UnitDAO();
+        $unit = $UnitDAO->getByID($idUnit);
+        echo $this->engine->render('editUnit', ['tftSetName' => 'Edit unit :', 'unit' => $unit]);
+    }
+
+    /**
+     * Constructor
+     */
     public function deleteUnitAndIndex(int $idUnit): void
     {
         $UnitDAO = new \Models\UnitDAO();

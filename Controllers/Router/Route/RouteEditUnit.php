@@ -4,8 +4,8 @@ namespace Controllers\Router\Route;
 
 use Controllers\Router\Route;
 
-// Classe RouteIndex
-class RouteIndex extends Route
+// Classe RouteEditUnit
+class RouteEditUnit extends Route
 {
     public function __construct($controller)
     {
@@ -14,11 +14,11 @@ class RouteIndex extends Route
 
     protected function get($params = [])
     {
-        $this->controller->index();
+        $this->controller->EditUnit((int)(parent::getParam($_GET, "id", false)));
     }
 
     protected function post($params = [])
     {
-        $this->controller->index();
+        $this->controller->EditUnit((int)(parent::getParam($_POST, "id", false)));
     }
 }
