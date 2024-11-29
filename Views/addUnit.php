@@ -2,10 +2,13 @@
 $this->layout('template', ['title' => 'TP TFT - Add Unit']);
 ?>
 <h1>TFT - Set <?= $this->e($tftSetName) ?></h1>
+<?php if (isset($message)) : ?>
+    <div class="message"><?= $this->e($message) ?></div>
+<?php endif; ?>
 <div class="cards-container">
     <div class="form-container">
         <div class="card-content">
-            <form>
+            <form action="index.php?action=add-unit" method="post">
                 <div class="form-group">
                     <label for="name">Nom:</label>
                     <input type="text" id="name" name="name" required>

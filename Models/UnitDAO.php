@@ -21,13 +21,14 @@ class UnitDAO extends BasePDODAO
 
         $units = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $units[] = new Unit(
-                $row['id'] ?? null,
-                $row['name'],
-                (int) $row['cost'],
-                $row['origin'],
-                $row['url_img']
-            );
+            $data = [
+                'id' => (int)($row['id']),
+                'name' => $row['name'],
+                'cost' => (int)($row['cost']),
+                'origin' => $row['origin'],
+                'urlImg' => $row['url_img']
+            ];
+            $units[] = new Unit($data);
         }
         return $units;
     }
@@ -50,5 +51,25 @@ class UnitDAO extends BasePDODAO
         }
 
         return null; // Si aucune unité n'est trouvée
+    }
+
+    // Ajoute une unité
+    public function add(Unit $unit): void
+    {
+        $sql = "INSERT INTO units (id, name, cost, origin, url_img) VALUES (:id, :name, :cost, :origin, :url_img)";
+        $this->execRequest($sql, [
+            ':id' => $unit->getId(),
+            ':name' => $unit->getName(),
+            ':cost' => $unit->getCost(),
+            ':origin' => $unit->getOrigin(),
+            ':url_img' => $unit->getUrlImg()
+        ]);
+    }
+
+    // supprime une unité
+    public function delete(int $idUnit = -1): void
+    {
+        $sql = "DELETE FROM units WHERE id = :id";
+        $this->execRequest($sql, [':id' => $idUnit]);
     }
 }

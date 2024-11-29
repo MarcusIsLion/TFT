@@ -19,7 +19,23 @@ class RouteAddUnit extends Route
 
     protected function post($params = [])
     {
-        // Optionnel : Appeler une méthode spécifique pour le POST
+        try {
+            $data = [
+                "id" => (int)(uniqid()),
+                "name" => parent::getParam($_POST, "name", false),
+                "cost" => (int)(parent::getParam($_POST, "cost", false)),
+                "origin" => parent::getParam($_POST, "origin", false),
+                "urlImg" => parent::getParam($_POST, "url_img", false)
+            ];
+            $unit = new \Models\Unit($data);
+            $unitDAO = new \Models\UnitDAO();
+            $unitDAO->add($unit);
+
+            $this->controller->AddUnit("Unit added successfully");
+        } catch (\Exception $e) {
+            $this->controller->AddUnit($e->getMessage());
+            return;
+        }
         $this->controller->AddUnit();
     }
 }

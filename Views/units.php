@@ -2,6 +2,9 @@
 $this->layout('template', ['title' => 'TP TFT - Units list Page']);
 ?>
 <h1>TFT - Set <?= $this->e($tftSetName) ?></h1>
+<?php if (isset($message)) : ?>
+    <div class="message"><?= $this->e($message) ?></div>
+<?php endif; ?>
 <?php
 $unitsGet = $units;
 ?>
