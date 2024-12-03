@@ -19,7 +19,6 @@ class RouteIndex extends Route
 
     protected function post($params = [])
     {
-        // Optionnel : Appeler une méthode spécifique pour le POST
         $this->controller->index();
     }
 }

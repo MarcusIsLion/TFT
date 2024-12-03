@@ -13,13 +13,20 @@ class Unit
     private string $origin;
     private string $url_img;
 
-    public function __construct(?int $id = null, string $name = '', int $cost = 0, string $origin = '', string $url_img = '')
+    public function __construct(array $data = [])
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->cost = $cost;
-        $this->origin = $origin;
-        $this->url_img = $url_img;
+        $this->hydrate($data);
+    }
+
+    //methode pour hydrater l'objet
+    public function hydrate(array $data): void
+    {
+        foreach ($data as $key => $value) {
+            $method = 'set' . ucfirst($key);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
     }
 
     // Getters

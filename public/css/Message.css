@@ -1,0 +1,13 @@
+.message-container {
+    border: 1px solid #000;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+.message-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+.message-content {
+    font-size: 18px;
+}
