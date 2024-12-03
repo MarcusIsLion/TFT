@@ -31,7 +31,7 @@ class Router
             "search" => new \Controllers\Router\Route\RouteSearch($this->ctrlList["main"]),
             "display-all-units" => new \Controllers\Router\Route\RouteDisplayAllUnits($this->ctrlList["unit"]),
             "add-unit" => new \Controllers\Router\Route\RouteAddUnit($this->ctrlList["unit"]),
-            "edit-unit" => new \Controllers\Router\Route\RouteAddUnit($this->ctrlList["unit"]),
+            "edit-unit" => new \Controllers\Router\Route\RouteEditUnit($this->ctrlList["unit"]),
             "delete-unit" => new \Controllers\Router\Route\RouteDeleteUnit($this->ctrlList["unit"]),
             "add-origin" => new \Controllers\Router\Route\RouteAddOrigin($this->ctrlList["unit"])
         ];

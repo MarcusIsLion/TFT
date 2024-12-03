@@ -2,6 +2,9 @@
 
 namespace Controllers;
 
+use Models\Unit;
+use Models\Message;
+
 class UnitController
 {
     #region Attributes
@@ -23,17 +26,15 @@ class UnitController
      */
     public function AddUnit(?string $message = null, array $data = null): void
     {
-        echo $this->engine->render('addUnit', ['tftSetName' => 'Add a new unit :', 'message' => $message]);
+        echo $this->engine->render('addUnit', ['tftSetName' => 'Add a new unit :', 'message' => $message, 'data' => $data]);
     }
 
     /**
      * Constructor
      */
-    public function EditUnit(int $idUnit): void
+    public function EditUnit(?string $message = null, array $data = null): void
     {
-        $UnitDAO = new \Models\UnitDAO();
-        $unit = $UnitDAO->getByID($idUnit);
-        echo $this->engine->render('editUnit', ['tftSetName' => 'Edit unit :', 'unit' => $unit]);
+        echo $this->engine->render('addUnit', ['tftSetName' => 'Edit unit :', 'message' => $message, 'data' => $data]);
     }
 
     /**

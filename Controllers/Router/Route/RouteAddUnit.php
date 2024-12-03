@@ -3,6 +3,7 @@
 namespace Controllers\Router\Route;
 
 use Controllers\Router\Route;
+use Models\Message;
 
 // Classe RouteAddUnit
 class RouteAddUnit extends Route
@@ -36,6 +37,5 @@ class RouteAddUnit extends Route
             $this->controller->AddUnit($e->getMessage());
             return;
         }
-        $this->controller->AddUnit();
     }
 }

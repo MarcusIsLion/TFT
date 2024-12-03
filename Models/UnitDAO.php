@@ -41,13 +41,14 @@ class UnitDAO extends BasePDODAO
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($row) {
-            return new Unit(
-                $row['id'] ?? null,
-                $row['name'],
-                (int) $row['cost'],
-                $row['origin'],
-                $row['url_img']
-            );
+            $data = [
+                'id' => (int)($row['id']),
+                'name' => $row['name'],
+                'cost' => (int)($row['cost']),
+                'origin' => $row['origin'],
+                'urlImg' => $row['url_img']
+            ];
+            return new Unit($data);
         }
 
         return null; // Si aucune unité n'est trouvée
